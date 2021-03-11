@@ -1,0 +1,14 @@
+
+Routing test
+  route correctly when the movie has a director
+  route correctly when the movie has no director
+  route correctly in general
+
+Movie
+  find correct movies with the same director
+  find no movies with different director
+
+Finished in 0.43273 seconds (files took 1.72 seconds to load)
+5 examples, 0 failures
+
+Coverage report generated for RSpec to /home/ec2-user/environment/hw-acceptance-unit-test-cycle/rottenpotatoes/coverage. 37 / 41 LOC (90.24%) covered.

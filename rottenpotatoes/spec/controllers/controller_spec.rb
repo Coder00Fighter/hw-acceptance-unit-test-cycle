@@ -24,4 +24,30 @@ RSpec.describe "Routing test", :type => :request do
         expect(response).to redirect_to("/movies")
     end
     
+    it "route correctly" do
+        new_movies = [{"title": "movie_1", "director": "director_a", "release_date": "2000-01-01"}]
+        new_movies.each do |new_movie|
+            Movie.create(new_movie)
+        end
+        
+        get "/movies"
+        expect(response).to render_template("index")
+
+        get "/movies/1"
+        expect(response).to render_template("show")
+        
+        get "/movies/1/edit"
+        expect(response).to render_template("edit")
+        
+        get "/movies/new"
+        expect(response).to render_template("new")
+        
+        put "/movies/1", "movie": {"title": "movie_2"}
+        expect(response).to redirect_to("/movies/1")
+        
+        delete "/movies/1"
+        expect(response).to redirect_to("/movies")
+        
+    end
+    
 end
